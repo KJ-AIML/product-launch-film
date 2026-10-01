@@ -9,6 +9,9 @@ technical feature.
 
 It works with any agent that reads `SKILL.md` skills (Claude Code, Codex, Cursor, and others).
 
+**Example output:** the [Heli-Harness launch film](https://github.com/KJ-AIML/heli-harness/releases/download/v0.10.4/heli-harness-launch.mp4)
+(57 s, MP4), made with this skill. See its concept doc in [`references/heli/concept-v2.md`](references/heli/concept-v2.md).
+
 ## What's inside
 
 ```
