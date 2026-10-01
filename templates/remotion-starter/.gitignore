@@ -1,0 +1,10 @@
+node_modules
+out
+.DS_Store
+.venv*
+.cache
+__pycache__/
+.env
+.env.*
+# generated audio; commit only what you mean to ship
+public/audio/**/*.mp3
