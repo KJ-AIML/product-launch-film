@@ -1,6 +1,6 @@
 # product-launch-film
 
-An agent skill for making **short, code-rendered launch films for software products** (30-60 s, 1080p60),
+An agent skill for making **short, code-rendered launch films for software products** (30-75 s, 1080p60, motion blur),
 built in Remotion from the real product: real CLI output, rebuilt real UI, a conversational
 ElevenLabs narration, original music/SFX, and a -16 LUFS master. The method and the lessons come from
 real projects (Connectra v1→v4, Heli-Harness v1→v2), including the feedback that shaped them: dark themes
@@ -15,12 +15,15 @@ It works with any agent that reads `SKILL.md` skills (Claude Code, Codex, Cursor
 ## What's inside
 
 ```
-SKILL.md                     the method: research → story → capture → look → build → sound → review
+SKILL.md                     the method (v2): research → story → capture → look → style direction →
+                             motion → build → sound → 16 quality gates → EN/TH → review
 references/
   checklist.md               anti-slop + review checklist (run before every delivery)
   case-studies.md            Connectra v1→v4 and Heli v1→v2 feedback loops
   heli/                      concept docs v1/v2, narration scripts, on-screen copy, layout checker
   connectra/                 concept notes (v1-v4), narration scripts v3/v4, copy, fleet overlap checker
+  sound-research.md          free/licensed music + SFX sources, licence notes, variety techniques
+  CHANGES-v2.md              what changed from v1 and why
 templates/remotion-starter/  pinned Remotion 4.0.530 project: theme/palette, copy, timeline, layout,
                              one example scene, Root, stills/audit, layout + contrast checkers,
                              VO tools (ElevenLabs TTS + STT check, prosody, cleanup), music/SFX synth,
