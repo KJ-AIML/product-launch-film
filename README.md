@@ -40,12 +40,12 @@ An agent skill (`SKILL.md`) and pinned Remotion starter for producing **20–75 
 ## How it works
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/pipeline-isokit-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="./docs/assets/pipeline-isokit-light.png">
-  <img alt="product-launch-film pipeline from real repository and sandbox capture through Remotion 2D/3D render, audio synthesis, and 16 quality gates" src="./docs/assets/pipeline-isokit-light.png" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/pipeline-object-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/assets/pipeline-object-light.gif">
+  <img alt="Animated 3D object bench walkthrough of product-launch-film: Real Repo laptop, Story & Motif tray, Remotion 2D/3D monitor, Audio -16 LUFS server, 16 QA Gates barrier, and Delivery Pack mailbox" src="./docs/assets/pipeline-object-light.gif" width="100%">
 </picture>
 
-<sub>Visual built with <a href="https://github.com/KJ-AIML/clarify">Clarify</a> (<code>isokit</code>) from <a href="./docs/pipeline-tour.md"><code>docs/pipeline-tour.md</code></a>.</sub>
+<sub>Animated 6-step 3D object bench built with <a href="https://github.com/KJ-AIML/clarify">Clarify</a> from <a href="./docs/pipeline-tour.md"><code>docs/pipeline-tour.md</code></a> — light and dark adaptive.</sub>
 
 ---
 
@@ -181,8 +181,8 @@ Read [`references/case-studies.md`](./references/case-studies.md) for the exact 
 product-launch-film/
 ├── SKILL.md                             11-stage production method (v2.1)
 ├── docs/
-│   ├── pipeline-tour.md                 Clarify isokit source for the pipeline diagram
-│   └── assets/                          Adaptive light/dark pipeline PNGs + 3D showcase sheet
+│   ├── pipeline-tour.md                 Clarify 3D object bench lesson source for the pipeline
+│   └── assets/                          Adaptive light/dark 3D pipeline GIFs + showcase sheet
 ├── references/
 │   ├── 3d-device-stage.md               Three.js 3D hero-device PBR, MacBook, capture & audit guide
 │   ├── checklist.md                     Anti-slop, 3D hardware, audio & delivery checklist

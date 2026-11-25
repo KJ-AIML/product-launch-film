@@ -111,4 +111,4 @@ Distilled from shipping the **AGY Swap v1 → v3** single-take 3D MacBook Pro la
 - **Click-Frame Audit & Real-App Frame Diff (`SKILL.md` §9 gate 15, `references/checklist.md`):** replaces DOM `data-box` overlap audit on WebGL `<canvas>` scenes where UI is texture-mapped.
 - **Zero-dependency Node.js audio synth starter (`templates/remotion-starter/scripts/make-audio.mjs`, `package.json` `"audio:node"`):** portable `Float64Array` stereo 48 kHz WAV synthesizer requiring zero Python/numpy dependencies, with a built-in `compressBus()` soft envelope compressor so percussive scores stay well under the 10% master limiter ceiling.
 - **New case study (`references/case-studies.md`):** documented AGY Swap v1 → v3 feedback loop and lessons.
-- **Flagship `README.md` + Clarify `isokit` pipeline diagram (`docs/pipeline-tour.md`, `docs/assets/`):** visual architecture diagram (light/dark adaptive) and real 3D single-take contact sheet showcase.
+- **Flagship `README.md` + Clarify 3D object bench pipeline GIFs (`docs/pipeline-tour.md`, `docs/assets/`):** animated 6-step 3D workbench diagram (light/dark adaptive) and real 3D single-take contact sheet showcase.
