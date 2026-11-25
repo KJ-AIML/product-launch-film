@@ -101,3 +101,14 @@ All sources are on the box under /workspace. Read-only; nothing in /home/box/age
 - "Fonts load from Google Fonts at render" -> generalised to load-before-first-frame (local files or google-fonts).
 - plf-repo checklist "crossfades" as a default motion -> crossfade rarely, never between two text layouts (COURSE.md 4.5).
 - "Exactly one accent" (plf-repo checklist) -> one bold colour used rarely, palette may extend with brand/derived colours (memctrl, PayComplAI v2).
+
+## v2.1 additions (3D Hero-Device & Real-Binary Pipeline)
+Distilled from shipping the **AGY Swap v1 → v3** single-take 3D MacBook Pro launch loop (21.0 s, 1080p60, BT.709, -16.09 LUFS):
+- **New `references/3d-device-stage.md`:** complete cookbook for direct Three.js `<canvas>` inside Remotion (synchronous per-frame rendering, zero `requestAnimationFrame`), calibrated bead-blasted matte PBR table (eliminating the "chrome laptop" trap), MacBook Pro 16" hardware micro-detail checklist (79-key backlit keyboard, Inverted-T arrows, Touch ID ring, micro-dot speaker grilles, thin matte bezel + notch, side ports), macro-safe 2× procedural wallpaper, and seamless loop contract.
+- **Real binary capture > hand-redrawn UI (`SKILL.md` §3, `references/checklist.md`):** prefer capturing 2× Retina PNG states directly from a sandboxed real binary and compositing live micro-overlays (cursor, LEDs) rather than redrawing native UI in HTML/Canvas.
+- **Sandbox & fixture freshness check (`SKILL.md` §1.7, `references/checklist.md`):** audit demo fixture data (model IDs, plan labels, CLI flags) against live source before capture.
+- **Dark studio cyclorama exception (`SKILL.md` Default taste & §4):** explicitly distinguishes calibrated 3D hardware studio lighting from dark-mode slop cards.
+- **Click-Frame Audit & Real-App Frame Diff (`SKILL.md` §9 gate 15, `references/checklist.md`):** replaces DOM `data-box` overlap audit on WebGL `<canvas>` scenes where UI is texture-mapped.
+- **Zero-dependency Node.js audio synth starter (`templates/remotion-starter/scripts/make-audio.mjs`, `package.json` `"audio:node"`):** portable `Float64Array` stereo 48 kHz WAV synthesizer requiring zero Python/numpy dependencies, with a built-in `compressBus()` soft envelope compressor so percussive scores stay well under the 10% master limiter ceiling.
+- **New case study (`references/case-studies.md`):** documented AGY Swap v1 → v3 feedback loop and lessons.
+- **Flagship `README.md` + Clarify `isokit` pipeline diagram (`docs/pipeline-tour.md`, `docs/assets/`):** visual architecture diagram (light/dark adaptive) and real 3D single-take contact sheet showcase.

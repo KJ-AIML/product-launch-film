@@ -9,6 +9,10 @@ Run this on every cut before you show it. Each "no" is either fixed or written i
 - [ ] Every feature on screen has a source (file, function or command) in the concept doc's table.
 - [ ] Every command/output string is verbatim from a sandbox run. Omissions are marked "…" and excerpts
       are labelled.
+- [ ] Sandbox & fixture freshness checked against live source/runtime (current model IDs, tiers, menu labels,
+      CLI flags — no stale mock data from older snapshots).
+- [ ] Real high-DPI (2× Retina) app captures are used whenever the binary can run in a sandbox; if UI had to
+      be hand-rebuilt from code instead, it is diffed side-by-side against the real app and noted.
 - [ ] Nothing invented: no fake metrics, star counts, logos, customers, "10x", or capabilities the product
       lacks.
 - [ ] Fictional parts (demo repo, test names, data) are listed in the concept doc.
@@ -23,7 +27,7 @@ Run this on every cut before you show it. Each "no" is either fixed or written i
 - [ ] No half-empty frames. If a panel enters later, start the first one centred and slide it over.
 
 ## Look (slop tells)
-- [ ] Light theme unless the brand is genuinely dark. No dark code blocks inside light windows.
+- [ ] Light theme unless the brand is genuinely dark (or a physically lit 3D hardware studio cyclorama). No dark code blocks inside light windows.
 - [ ] Palette from the product's own brand/hero/app tokens. Exactly one accent, used sparingly.
 - [ ] Distinct from the user's other films (compare palette, type, motif).
 - [ ] No glow, no decorative gradients, no emoji, no "✨", no gratuitous checkmarks, no pill/badge piles,
@@ -35,6 +39,20 @@ Run this on every cut before you show it. Each "no" is either fixed or written i
 - [ ] Ligatures off in every monospace element (`->`, `!=`, `--`, `>=` render as typed).
 - [ ] Motion: ease-out entrances, slow camera, crossfades. No bouncy springs on everything, and nothing
       flies across other content.
+
+## 3D hero-device stage (when using a Three.js laptop/phone)
+- [ ] Materials are physically matte, never chrome: anodized aluminium `metalness` 0.30–0.45, `roughness` 0.50–0.65,
+      soft studio `envMapIntensity` ≤ 0.60, matte display glass with restrained glare.
+- [ ] Hardware micro-details verified against real product photos (full-height function row, Inverted-T arrow keys,
+      circular Touch ID ring, recessed dark key well, laser-drilled speaker micro-dots, thin matte bezel + notch,
+      accurate side ports and hinge slot).
+- [ ] Wallpaper / screen backdrop stays sharp even at macro camera zoom (procedural 2× high-res Canvas or crisp
+      hi-res bitmap — never upscaled noisy blur).
+- [ ] **Click-Frame Audit:** stills at `t-1f, t, t+1f` around every click prove the cursor lands on the exact button
+      hitbox and the UI switches on the click frame (no hover drift or phantom clicks).
+- [ ] **Real-App Frame Diff:** full-res rendered frame compared side-by-side against a real app screenshot (buttons,
+      window chrome, typography, status dots, settings screen all match).
+- [ ] **Seamless loop** (if looping): frame `0` and frame `N-1` match in camera pose, UI state, and audio crossfade.
 
 ## Contrast and layout
 - [ ] `npm run check:contrast` passes. Every text colour is AA (4.5:1) on every surface it sits on,

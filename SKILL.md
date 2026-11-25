@@ -1,31 +1,33 @@
 ---
 name: product-launch-film
 description: >-
-  Use when the user wants a short (30-75 s) launch, promo, demo or explainer
-  film for their own software product, repo, CLI or app, built as code in
-  Remotion from the real product at 60 fps with motion blur. Covers research,
-  story, motif-driven style directions, reference-clip style studies, motion
-  craft, original music and SFX with or without voice-over, EN/TH cuts, 16
+  Use when the user wants a short (20-75 s) launch, promo, demo, or seamless
+  3D single-take loop film for their own software product, repo, CLI or app,
+  built as code in Remotion from the real product at 60 fps with motion blur.
+  Covers research, story, motif-driven 2D and Three.js 3D hero-device style
+  directions, reference-clip style studies, motion craft, original music and
+  SFX (zero-dep Node or Python) with or without voice-over, EN/TH cuts, 16
   quality gates, and iteration on feedback. Full version with templates lives
-  in the private repo github.com/KJ-AIML/product-launch-film.
+  at github.com/KJ-AIML/product-launch-film.
 ---
 
 # Product launch film (code-rendered)
 
-Goal: a 40-70 s, 1920x1080 @ 60 fps film that looks hand-made and After-Effects smooth, shows only what the product really does, has its own look built from the product's brand, and does not read as AI slop.
+Goal: a 20-70 s (40-70 s for narrative launch cuts; 18-30 s for single-take 3D macro loops), 1920x1080 @ 60 fps film that looks hand-made and After-Effects smooth, shows only what the product really does, has its own look built from the product's brand, and does not read as AI slop.
 
 Files in this skill (this repo):
-- `templates/remotion-starter/`: a pinned Remotion project with a theme, copy, layout checker, contrast checker, stills/audit, VO, music and mastering scripts. Copy it, don't build from scratch.
+- `templates/remotion-starter/`: a pinned Remotion project with a theme, copy, layout checker, contrast checker, stills/audit, VO, music (Python and zero-dep Node `scripts/make-audio.mjs`) and mastering scripts. Copy it, don't build from scratch.
+- `references/3d-device-stage.md`: complete playbook for photorealistic 3D hero-device / single-take macro loops (direct Three.js `<canvas>`, matte anodized PBR table, MacBook Pro micro-details, real-binary UI capture, click-frame audit, seamless looping).
 - `references/checklist.md`: the anti-slop and review checklist. Run it before every delivery.
-- `references/case-studies.md`: what went wrong and what fixed it on real projects. Read it once.
+- `references/case-studies.md`: what went wrong and what fixed it on real projects (Connectra v1→v4, Heli-Harness v1→v2, AGY Swap v1→v3). Read it once.
 - `references/heli/`, `references/connectra/`: real concept docs, narration scripts, on-screen copy and layout checkers from those films, as worked examples.
 - `references/sound-research.md`: sources, licences and techniques behind section 8 (Sound).
-- `references/CHANGES-v2.md`: what changed from v1 and why.
+- `references/CHANGES-v2.md`: what changed from v1 → v2 → v2.1 and why.
 
 If a previous film's `tools/` folder is at hand (render, encode, finish, flow, gates, audit, contact, master, make_audio), port it rather than rewrite it, and adapt paths; don't trust it blindly.
 
 Default taste (applies unless the owner says otherwise):
-- Light theme. Dark full frames read as AI slop; dark only as small islands or a brief bookend.
+- Light theme for 2D editorial/explainer films. Dark full frames read as AI slop; dark only as small islands, a brief bookend, or a physically lit dark studio cyclorama for a 3D hardware hero-device showcase (see `references/3d-device-stage.md`).
 - Each film gets its own mood from its product's brand. Never the last film's look with new copy.
 - Restrained, Linear-quality real UI and typography. Bold brand colour used with intent, not as decoration.
 - Value-first story. Security and governance are a supporting beat unless they are the product.
@@ -39,6 +41,7 @@ Default taste (applies unless the owner says otherwise):
 4. The owner's description of what the product is for beats your reading of the code.
 5. Write a features-shown table (feature, source file/command, verified how: ran in sandbox / gallery render / code-read). Never invent features, metrics, stars, customers or capabilities; show real behaviour honestly (one-at-a-time calls as a fast cascade, not a broadcast).
 6. Write a brand sheet before any scene: tokens with source, fonts and licences, mark paths, shape motif, motion tokens (site easings, "no bounce" rules), verbatim headlines, real vs concept table, brand bans.
+7. Check sandbox & fixture freshness against live source/runtime (current model IDs, plan tiers, menu entries, CLI flags). Never copy stale mock strings into a film just because an old sandbox fixture or screenshot still has them.
 
 ## 2. Story first
 1. One tagline before any visuals, built from the product's own words; use it as the climax title and end card.
@@ -55,13 +58,14 @@ Default taste (applies unless the owner says otherwise):
 
 ## 3. Capture real output
 - Run the CLI/app in a throwaway sandbox (temp HOME, scratch project, repo copy), never against the user's real config. Capture output verbatim; keep on-screen strings in one copy file with their source.
+- **Real binary capture beats hand-redrawn UI.** Whenever a desktop/web app can launch in a sandbox (`--sandbox` or temp `HOME`), capture high-DPI (2× Retina) PNG screenshots of every exact state shown in the film (idle, menu open, hover, active switch, settings, tray) and composite them directly into the composition or 3D screen texture, adding only live micro-overlays (cursor, status LEDs, pressed-button feedback). Hand-redrawing complex native UI in HTML/Canvas almost always drifts in spacing, buttons, fonts, or settings screens. Only rebuild UI from source when the app genuinely cannot launch locally, and note it explicitly.
 - Only demo repo/data may be fictional. Label it on screen in every shot it appears ("Sample data", "Example", "Concept", "Demo desktop, sample windows."). Mark omissions with an ellipsis; call excerpts excerpts.
 - Unbuilt or partial features: leave them out, or label on screen "Coming soon" / "in development". Never present planned as shipped.
-- Rebuild UI faithfully from the product's real components and tokens. If the app can't be launched, rebuild from source and its screenshots and say so in the notes. Third-party tools get generic panes, name as plain text, no logos. No prices unless the owner approves.
+- Third-party tools get generic panes, name as plain text, no logos. No prices unless the owner approves.
 
 ## 4. Visual direction
 - Mood distinct from the user's other films; palette/type from the product's own brand, app theme or hero image. Extend the palette only with colours the brand already uses or that you derive for contrast (an "ink" variant of a fill colour), and write down why.
-- Default to light. Dark terminal-on-black reads as AI slop unless the brand is dark. Use light terminal/editor panes; no dark code blocks inside light UI. A dark brand can be inverted: its background becomes the ink.
+- Default to light. Dark terminal-on-black reads as AI slop unless the brand is dark. Use light terminal/editor panes; no dark code blocks inside light UI. A dark brand can be inverted: its background becomes the ink. **Hardware studio exception:** a photorealistic 3D hero-device showcase (e.g., an anodized Space Black laptop in a studio cyclorama) may sit on a deep charcoal studio sweep with calibrated soft key/rim lighting — never floating neon slop cards — see `references/3d-device-stage.md`.
 - Remove slop tells: pill/badge overload, glow, decorative gradients, glassmorphism, uniform card grids, nested boxes, fake metrics, fake logos, emoji, gratuitous checkmarks, grey placeholder bars, bouncy springs everywhere, every element entering at once with the same ease, particle midpoints that read as noise, effects that carry no story idea.
 - Apply Jakub Krehel's UI skills (jakub.kr/skills): nested radius = inner + padding, shadow rings over borders (tinted rings, not glows), one filled primary button per panel, spacing over dividers, tabular numbers, weight >= 400 below 18px, `text-wrap: balance` on titles.
 - Every text colour meets WCAG AA (4.5:1; 3:1 only for display >= 24px) on every surface; make labels darker than feels necessary. A brand colour that fails as text is used for fills or display size only.
@@ -72,7 +76,7 @@ Default taste (applies unless the owner says otherwise):
 
 ## 5. Style direction
 1. Draft 2-3 distinct directions before building. They must differ in style, signature device and use of colour, not just palette. Recommend one; the owner may pick another.
-2. Menu to choose from (not a template): bold type-led (giant words, full-bleed brand beats), clean product-UI (macro push-ins, pointer), macro/camera-led (dives into a letter or button, whips, match cuts), motif-built colour fields, collage/system map, kinetic type on the beat, hero device (a code-built laptop/phone as the stage), data-viz on real numbers only, editorial paper.
+2. Menu to choose from (not a template): bold type-led (giant words, full-bleed brand beats), clean product-UI (macro push-ins, pointer), macro/camera-led (dives into a letter or button, whips, match cuts), motif-built colour fields, collage/system map, kinetic type on the beat, **3D hero device / single-take macro loop** (a Three.js photorealistic laptop/phone floating in a calibrated studio stage with real-binary screen textures — see `references/3d-device-stage.md`), data-viz on real numbers only, editorial paper.
 3. Motif to motion (the strongest recipe so far):
    - Find one element the brand already owns, from source files: the shape inside the mark, a site hero animation, a UI primitive, a texture.
    - List its physical verbs (a pixel falls, pours, folds, floods; a ribbon tangles, ties, coils, threads; a ring closes, irises).
@@ -138,7 +142,7 @@ Every value is a pure function of (fractional) time. No state, `Math.random()` o
 - One config file holds every number tools and gates read (fps, size, safe area, blur, encode, loudness, flow thresholds, brand pixel probes). Projects may tighten thresholds, never loosen silently.
 - Load fonts before the first frame (FontFace + delayRender, or @remotion/google-fonts); record licences. Thai/second script goes after the Latin face in the same stack.
 - Logos: copy SVG paths verbatim; PNG only at <= its native scale.
-- Tag every text block and part with `data-box`; mount invisible blocks only when they start, so the overlap audit doesn't flag them. Measure clip-aware boxes.
+- Tag every text block and part with `data-box`; mount invisible blocks only when they start, so the overlap audit doesn't flag them. Measure clip-aware boxes. (For WebGL/Three.js `<canvas>` hero-device films, drive Three.js synchronously inside `useLayoutEffect`/`useEffect` from Remotion's `useCurrentFrame()` — never `requestAnimationFrame` — and use the Click-Frame Audit + Real-App Diff in `references/3d-device-stage.md` instead of DOM `data-box`.)
 - Render PNG frames (never JPEG), then encode once: full to tv range with a BT.709 matrix, H.264 High crf 18 (16 for flat-colour films), preset slow, AAC 48 kHz, +faststart. Write primaries/transfer tags into the stream (`h264_metadata` bsf or setparams); `-color_*` flags alone leave them unknown. Detect frame-name width (Remotion pads to the last frame's digit count).
 - GL: swangle on a headless Linux box (deterministic). On a Mac, angle is far faster; verify by diffing a few frames against swangle.
 - Long renders: detached (`setsid nohup bash tools/finish.sh <lang> > log 2>&1 &`), resumable in chunks (only missing frames), accept a frame range to patch, then master, encode, audit, flow, gates, contact sheet and stills. Keep STATUS.md with the exact resume command. Share CPU with other renders (lower concurrency).
@@ -178,7 +182,7 @@ Each film needs its own sound, not a re-seeded copy of the last one. Changing ke
 ### 8.4 Music: make it, sample it, or license it
 - Allowed sources, in order of preference:
   1. Original composition rendered with sampled CC0/MIT instruments (VSCO2 CE, VCSL, Karoryfer free, FluidR3 GM) through an SF2/SFZ player or a small numpy sampler.
-  2. Original synthesis that is new for this film (new instruments written for the palette, not copied functions).
+  2. Original synthesis that is new for this film (new instruments written for the palette, not copied functions — in Python/numpy or zero-dependency Node.js `Float64Array`, see `templates/remotion-starter/scripts/make-audio.mjs`).
   3. Licensed library music whose licence covers company promos on every platform the film will go to (see the sources table).
 - Mix approaches: sampled instruments for the main voice and synthesis for texture, or the reverse. At least one acoustic or recorded source per film.
 - Humanise: velocity variation, timing offsets of a few ms, round-robin samples, real-room reverb (convolution with a CC0 impulse response) instead of the same synthetic IR.
@@ -203,7 +207,7 @@ Each film needs its own sound, not a re-seeded copy of the last one. Changing ke
 - Voice: audition 3-4 expressive voices on 1-2 lines; eleven_v4/v3 with audio tags, stability ~0.4, similarity 0.75, request stitching; 2-3 takes per line. Pronunciation: STT every take; if the product name is misheard, rephrase with context or drop it. Without listening, use prosody stats (pitch SD < ~2 semitones sounds read) and say nobody has listened yet.
 
 ### 8.8 Mix and master
-- Mix: bed ~0.34, ducked to ~0.085 under speech with ~10-frame ramps; speech 9-14 dB above the bed; mix peak ~-6 dBFS before mastering. Keep stems (music, SFX, VO) for the no-reuse check and for fixes.
+- Mix: bed ~0.34, ducked to ~0.085 under speech with ~10-frame ramps; speech 9-14 dB above the bed; mix peak ~-6 dBFS before mastering. Keep stems (music, SFX, VO) for the no-reuse check and for fixes. For percussive or transient-heavy beds (marimba, plucked keys, mechanical clicks, UI taps), run a gentle envelope bus compressor (`~-12 dBFS` threshold, `2.5–3.5:1` ratio, fast attack / ~90 ms release) on the score/SFX stems before summing so transients don't force the master limiter above 10% activity.
 - Master: -16 LUFS integrated, true peak <= -2 dBTP, static gain + look-ahead limiter (~-3 dBFS ceiling), loop until within 0.15 LU. If the limiter works on >10% of samples or LRA collapses toward 2 LU, fix the mix. Report "checked by meters only" until someone listens.
 
 ### 8.9 Sources, licences and credits
@@ -231,7 +235,7 @@ Hard gates run on the finished MP4 and must all PASS; REVIEW rows need a written
 12. Longest hold <= 0.6 s: DIS optical flow, p95 < 30 px/s at 1920 scale, 1.5 frames either side of cuts ignored.
 13. Held-time share <= 6 % (sum of each shot's longest hold).
 14. Exact duplicate frames <= 0.2 %.
-15. Layout overlaps = 0 in a DOM audit every 2nd-6th frame at 1 sample, mid-animation included.
+15. Layout overlaps = 0 in a DOM audit every 2nd-6th frame at 1 sample, mid-animation included. (For WebGL/Three.js `<canvas>` films where UI lives on a screen texture, substitute the **Click-Frame Audit** — stills at `t-1f, t, t+1f` around every click — plus a **Side-by-Side Real-App Frame Diff**, see `references/3d-device-stage.md`.)
 16. Safe area: 0 grazes, or grazes only during camera moves (REVIEW, list them).
 Also required, not automated: contrast script passes for every text/surface pair; claims table covers every string and every sample shot is labelled; brand fonts only (no serif fallback); a 200-300 frame contact sheet and one still per scene with no blank/half-empty frames, clipped glyphs, doubled text or ghosting across cuts; watch the final at 100 % twice for stutter, strobing and stop-go; ambition check written. The flow report's judder and dip counts are informational: use them to find where to look.
 
@@ -292,8 +296,7 @@ Voice-over and mastering:
 - **VO cleanup:** `scripts/vo/process-vo.sh` does a high-pass, gentle compression and a soft limit. It
   lowers the crest ~3 dB so the master limiter barely works. It needs a full ffmpeg (Remotion's bundled
   one lacks `alimiter`).
-- **Mix:** music bed ~0.34, ducked to ~0.085 under speech (≈ -12 dB; 12-frame down, 24-frame up). Speech
-  should sit 9-14 dB above the bed. Expose stem switches (`--props='{"vo":false}'`) for checking.
+- **Mix & Synth:** `npm run audio:node` (`scripts/make-audio.mjs`) synthesizes a stereo 48 kHz WAV with zero external packages (no Python/numpy required) and includes a per-bus envelope compressor (`compressBus`) so percussive beds stay well below the 10% limiter threshold; `scripts/make_audio.py` remains available when Python/numpy is preferred. Music bed ~0.34, ducked to ~0.085 under speech (≈ -12 dB; 12-frame down, 24-frame up). Speech should sit 9-14 dB above the bed. Expose stem switches (`--props='{"vo":false}'`) for checking.
 - **Master:** `scripts/master-audio.mjs` measures EBU R128, applies one static gain to -16 LUFS integrated,
   then a transparent look-ahead limiter (sample ceiling -2.3 dB). It re-measures and trims, stream-copies
   the picture and muxes AAC. Targets: I = -16 ±0.5 LUFS, true peak ≤ -1.5 dBTP (aim ≤ -2). If the

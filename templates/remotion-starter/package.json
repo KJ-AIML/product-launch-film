@@ -11,6 +11,7 @@
 		"check:contrast": "node --no-warnings scripts/check-contrast.ts",
 		"check": "npm run typecheck && npm run check:layout && npm run check:contrast",
 		"audio": "python3 scripts/make-audio.py",
+		"audio:node": "node scripts/make-audio.mjs",
 		"stills": "node scripts/stills.mjs --named",
 		"audit": "node scripts/stills.mjs --audit",
 		"render:picture": "remotion render FilmPicture out/film-picture.mp4 --codec=h264 --muted --crf=18 --pixel-format=yuv420p --image-format=png",
